@@ -3,7 +3,7 @@ const RedirectProtocol = 'https://'
 const RedirectHost = 'one.country'
 
 function parseUrl (urlStr) {
-    if(urlStr.includes(`${MatchHost}&`)) {
+    if(urlStr && urlStr.includes(`${MatchHost}&`)) {
         const url = new URL(urlStr)
         if(url) {
             const queryParam = url.searchParams.get('q')
