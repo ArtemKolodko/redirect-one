@@ -1,6 +1,6 @@
 const MatchHost = '.1'
 const RedirectProtocol = 'https://'
-const RedirectHost = 'one.country'
+const RedirectHost = '1.country'
 
 function parseUrl (urlStr) {
     if(urlStr && urlStr.includes(`${MatchHost}&`)) {

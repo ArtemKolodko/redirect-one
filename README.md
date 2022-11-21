@@ -3,9 +3,9 @@ Extension redirects tab URL from `.1` to `one.country`
 
 ### Expected behaviour
 ```shell
-.1 -----------> one.country
-all.1 --------> all.one.country
-test.all.1 ---> test.all.one.country
+.1 -----------> 1.country
+all.1 --------> all.1.country
+test.all.1 ---> test.all.1.country
 ```
 
 ### How to install
