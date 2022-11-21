@@ -1,5 +1,5 @@
 ### Redirect one domains
-Extension redirects tab URL from `.1` to `one.country`
+Extension redirects tab URL from `.1` to `1.country`
 
 ### Expected behaviour
 ```shell
