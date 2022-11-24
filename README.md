@@ -1,4 +1,4 @@
-### Redirect one domains
+### Description
 Extension redirects tab URL from `.1` to `1.country`
 
 ### Expected behaviour
