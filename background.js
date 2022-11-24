@@ -7,7 +7,10 @@ function parseUrl (urlStr) {
         const url = new URL(urlStr)
         if(url) {
             const queryParam = url.searchParams.get('q')
-            if(queryParam) {
+            const sourceId = url.searchParams.get('sourceid')
+
+            // sourceId === 'chrome' means that search was triggered from browser URL, not from https://google.com
+            if(sourceId === 'chrome' && queryParam) {
                 const [subDomains] = queryParam.split(MatchHost)
                 return `${RedirectProtocol}${subDomains ? subDomains + '.' : ''}${RedirectHost}`
             }
