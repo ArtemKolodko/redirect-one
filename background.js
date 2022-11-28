@@ -1,19 +1,17 @@
-const MatchHost = '.1'
-const RedirectProtocol = 'https://'
+const TargetHost = '.1'
 const RedirectHost = '1.country'
 
 function parseUrl (urlStr) {
-    if(urlStr && urlStr.includes(`${MatchHost}&`)) {
-        const url = new URL(urlStr)
-        if(url) {
-            const queryParam = url.searchParams.get('q')
-            const sourceId = url.searchParams.get('sourceid')
+    const url = new URL(urlStr)
+    if(url) {
+        const queryParam = url.searchParams.get('q') || ''
+        const isRedirectedFromUrl = url.searchParams.get('sourceid') === 'chrome'
 
-            // sourceId === 'chrome' means that search was triggered from browser URL, not from https://google.com
-            if(sourceId === 'chrome' && queryParam) {
-                const [subDomains] = queryParam.split(MatchHost)
-                return `${RedirectProtocol}${subDomains ? subDomains + '.' : ''}${RedirectHost}`
-            }
+        // Do not handle requests coming from main google search page
+        if(isRedirectedFromUrl && queryParam.includes(TargetHost)) {
+            const [prefix = '', postfix = ''] = queryParam.split(TargetHost)
+            const domain = prefix.replace(/(http(s?)):\/\//, '')
+            return `https://${domain ? domain + '.' : ''}${RedirectHost}${postfix}`
         }
     }
 }
