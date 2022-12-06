@@ -1,0 +1,28 @@
+<html>
+<head>
+    <style>
+        a {
+            margin: 16px;
+        }
+        .box {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+<h3>Positive cases: URL should be changed to 1.country</h3>
+<div class="box">
+    <a href=".1" target="_blank">.1</a>
+    <a href="https://.1" target="_blank">https://.1</a>
+    <a href="https://all.1" target="_blank">https://all.1</a>
+    <a href="https://subdomain.all.1" target="_blank">https://subdomain.all.1</a>
+</div>
+<h3>Negative cases</h3>
+<div class="box">
+    <a href="https://test.1.com" target="_blank">https://test.1.com</a>
+    <a href="https://test.12.com" target="_blank">https://test.12.com</a>
+    <a href="https://test.12" target="_blank">https://test.12</a>
+    <a href="https://1.com" target="_blank">https://1.com</a>
+</div>
+</body>
+</html>
